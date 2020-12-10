@@ -1,19 +1,12 @@
-import requests
 import json
-
-
-IP_URL ='http://ip-api.com/json/{}'
+import urllib
+import urllib.request
 
 def get_location(ip_address):
 
-    URL = IP_URL.format(ip_address)
-    r = requests.get(URL)
-    info = json.loads(r.text)
-    #print(info)
-    try:
-        location = info['country']
-        city = info['city']
-    except KeyError:
-        print('Error')
+    url = 'http://ip-api.com/json/{}'
+    url = url.format(ip_address)
+    json_obj = urllib.request.urlopen((url))
+    js = json.load(json_obj)
 
-    return location, city
+    return js["city"], js["country"]
