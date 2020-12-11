@@ -16,9 +16,16 @@ def parse_arguments():
     parser.add_argument ("IP_address", type=str,
                          help= "Insert an IP Address",
                          default=None
-                         
+    parser.add_argument('-u', help="username name (requires -p)",
+                         default=None)
+    parser.add_argument('-p', help="username password",
+                         default=None)
+
+    group=parser.add_mutually_exclusive_group()
+    group.add_argument("-q", "--quiet", action="store_true", help ="print quiet")
+    group.add_argument("-v", "--verbose", action="store_true", help="print verbose")                         
     args = parser.parse_args()
-    
+
     return args
 
 if name == "main":
