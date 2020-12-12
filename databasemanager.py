@@ -8,6 +8,11 @@ conn = None
 cursor = None
 
 def db_creation(path):
+    """Check the existence of the database or create a new one.
+
+    Keyword arguments:
+    path - Location of the database file
+    """
 
     global conn
     global cursor
@@ -24,6 +29,16 @@ def db_creation(path):
                         PRIMARY KEY (username))''')
 
 def save_new_username(username, password):
+    """Saves in the databse the:
+    - username
+    - digest (the hash of password + salt)
+    - salt (random number)
+
+    Keyword arguments:
+    username – The users’ username
+    password -- The  users’ password
+    api_key --- The users’ personal api key
+    """
 
     global conn
     global cursor
@@ -39,6 +54,12 @@ def save_new_username(username, password):
 
 
 def check_for_username(username, password):
+    """Check for the log-in.
+
+    Key arguments:
+    username – The users’ username
+    password -- The  users’ password
+    """
 
     global conn
     global cursor
@@ -56,6 +77,7 @@ def check_for_username(username, password):
 
 def parse_args():
     """Parse user inputs: username and password."""
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', help="add a username (requires -p)",
                         required=False)
