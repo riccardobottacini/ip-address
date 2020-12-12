@@ -1,20 +1,56 @@
-## Implementation of an IP address Geolocator
 
 
-In this repository you can find a file named ```ip_address.py``` that implements the ```get_location(ip_address)``` function.
-Such function queries the [ip-api](https://ip-api.com/docs/api:json) website to fetch data about the location of the given input ```ip_address```.
-If you run the program, executing the main file with: ```python main.py``` it will give you an output similar to the following: 
+### IP ADDRESS GEO-LOCATION :globe_with_meridians:
+
+In this repository you can find a file named ```main.py``` that triggers the ip-api.com API and return the city where the ip address is from. 
+
+If you run the program, executing the main file with: ```$ python main.py 1.2.3.4 -u test -p test``` it will  give you results similar to the following: 
 
 ```
-$ python main.py
-IP address 153.138.24.18 is from Chiyoda, Japan 
+$ python main.py 1.2.3.4 -u admin -p admin
+The IP ADDRESS 1.2.3.4 is located in South Brisbane (Australia)
 ```
 
-The project requires ```json``` and ```requests``` modules to run. The API offers several information beyond country and city (like region, zip, latutude and longitude and so on): you can explore different options to be implemented in your projects. Note that also a "status" flag is returned to indicate the success of the request (the endpoint is limited to 45 requests per minute from an IP address).
+A user can choose an IP Address they need the geo location. Once a user has asked for the ip address, their information will be registered in a csv file named ip_data.csv. This is done through an internal function in the csv_manager.py.
 
-DESCRIPTION OF THE PROJECT
+### Command line parameters :computer:
+In order to execute the ```main.py``` file, a few command line parameters must be passed.
+#### Positional arguments
+- **ip address**: The ip address the user needs the information. **Only one** ip address can be chosen.
 
-The first function created is a function that questions the API and gives back the city. 
-Other information provided are the country, together with the latitude and the longitude. 
-The function ip_address uses the libraries json, urllib to get from the API the information needed and load them.
-The function main, instead, load the function from the other file (called ip_address) and return a string that gives the IP address with the location (composed by city and country).
+#### Optional Argument
+- **-h, --help**: displays all the possible options for each parameter; 
+- **-v**:  displays the output with different levels of verbosity (at the moment only one level of verbosity is supported);
+- **-u U [required]:** the username (requires *-p*).  
+- **-p P [required]:** the user's password.
+
+### How to manage the database :busts_in_silhouette:
+In order to run ```main.py``` you will need a **username** and a **password**. The package comes with a **default user** with the following credenentials:
+- *username*: **test**
+- *password*: **test**
+
+There is the possibility to add new users. You can find a helper module ```dbmanager.py``` in the parent directory that allows you to populate the database.
+
+#### Adding a new user
+Use the parameter ```-a```. Requires the following:
+ - **-a:** username 
+ - **-p:** password
+```
+$ python databasemanager.py -a admin -p admin 
+The registration has been successful
+```
+
+### References :green_book:
+The API we use is offered by [ip-api](https://ip-api.com/docs/api:json)
+
+### Authors and acknowledgment :busts_in_silhouette:
+- **Bottacini Riccardo**
+- **Cardone Lorenzo**
+- **Cosimo Borelli**
+- **Galiazzo Sofia Irene**
+- **Scuccato Alberto**
+
+### License :page_facing_up:
+[GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
+
+
