@@ -37,7 +37,6 @@ def save_new_username(username, password):
     Keyword arguments:
     username – The users’ username
     password -- The  users’ password
-    api_key --- The users’ personal api key
     """
 
     global conn
