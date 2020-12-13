@@ -1,5 +1,5 @@
-import ip_address
-import csv_manager
+from scripts import ip_address
+from scripts import csv_manager
 import databasemanager
 import argparse
 
@@ -15,7 +15,7 @@ def parse_arguments():
             description="IP ADDRESS prject")
     parser.add_argument ("IP_address", type=str,
                          help= "Insert an IP Address",
-                         default=None
+                         default=None)
     parser.add_argument('-u', help="username name (requires -p)",
                          default=None)
     parser.add_argument('-p', help="username password",
@@ -23,16 +23,17 @@ def parse_arguments():
 
     group=parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help ="print quiet")
-    group.add_argument("-v", "--verbose", action="store_true", help="print verbose")                         
+    group.add_argument("-v", "--verbose", action="store_true", help="print verbose")
     args = parser.parse_args()
 
     return args
 
-if name == "main":
+if __name__ == '__main__':
     args = parse_arguments()
     if databasemanager.check_for_username(args.u,args.p):
         city, country = ip_address.get_location(args.IP_address)
-        info = str("The IP ADDRESS "+ args.IP_address + " is located in "
-                + city + " (" +  country +") ")
+        info = str("The IP ADDRESS "+ args.IP_address + " is located in " + city + " (" +  country +") ")
         print (info)
-	csv_manager.write_data(csv_path,args.IP_address,city,country)
+        csv_manager.write_data(csv_path,args.IP_address,city,country)
+    else:
+        print('Something goes wrong!')
