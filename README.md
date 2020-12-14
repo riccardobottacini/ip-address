@@ -40,6 +40,29 @@ $ python databasemanager.py -a admin -p admin
 The registration has been successful
 ```
 
+#### Read the csv file
+A module named ```csv_readers.py``` that read the csv file.
+
+```
+$ python scripts/csv_readers.py
+['1.2.3.4', 'South Brisbane', 'Australia']
+```
+
+### Testing :ballot_box_with_check:
+We create a  module named ```test_csv_readers.py``` in order to test part of the code.
+
+```
+$ python -m unittest -v -b scripts/test_csv_readers.py
+test_empty_datafile (scripts.test_csv_readers.TestCSVReaders) ... ok
+test_file_is_not_csv (scripts.test_csv_readers.TestCSVReaders) ... ok
+test_no_datafile (scripts.test_csv_readers.TestCSVReaders) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.005s
+
+OK
+```
+
 ### References :green_book:
 The API we use is offered by [ip-api](https://ip-api.com/docs/api:json)
 
