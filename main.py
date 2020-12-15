@@ -30,6 +30,10 @@ def parse_arguments():
 
     return args
 
+""" It prints infos on screen: the IP address, args.IP_address, 'is located in', the city and
+the country. All these datas were found in the API.
+It triggers the csv manager to write those datas in the csv file.
+If some errors are encountered it prints an allert 'Something goes wrong'  """
 
 if __name__ == '__main__':
     args = parse_arguments()

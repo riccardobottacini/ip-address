@@ -3,7 +3,7 @@
 import json
 import urllib
 import urllib.request
-
+""" Takes the ip and return city and country datas through the API """
 
 def get_location(ip_address):
 
