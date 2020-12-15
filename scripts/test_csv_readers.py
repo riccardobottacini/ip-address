@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import os
 import unittest
 
@@ -5,7 +7,6 @@ from scripts.csv_readers import read_csv
 
 
 class TestCSVReaders(unittest.TestCase):
-
 
     def setUp(self):
         self.temporary_file = 'temporary_file'
