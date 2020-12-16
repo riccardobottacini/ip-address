@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 from scripts import ip_address
 from scripts import csv_manager
 import databasemanager
@@ -14,6 +11,8 @@ databasemanager.db_creation(database_path)
 
 
 def parse_arguments():
+    """parse the user arguments"""
+
     parser = argparse.ArgumentParser(description='IP ADDRESS prject')
     parser.add_argument('IP_address', type=str,
                         help='Insert an IP Address', default=None)
@@ -30,10 +29,6 @@ def parse_arguments():
 
     return args
 
-""" It prints infos on screen: the IP address, args.IP_address, 'is located in', the city and
-the country. All these datas were found in the API.
-It triggers the csv manager to write those datas in the csv file.
-If some errors are encountered it prints an allert 'Something goes wrong'  """
 
 if __name__ == '__main__':
     args = parse_arguments()

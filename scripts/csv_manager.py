@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 import csv
 
 
@@ -9,6 +7,11 @@ def write_data(
     city,
     country,
     ):
+    """Function that creates a csv if it doesn't exist, 
+    if instead it exists it controls its content and 
+    if what is to be inserted is not present it writes it 
+    """
+
     try:
         open(path)
     except:

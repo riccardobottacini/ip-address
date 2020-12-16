@@ -1,11 +1,12 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 import json
 import urllib
 import urllib.request
-""" Takes the ip and return city and country datas through the API """
+
 
 def get_location(ip_address):
+	""" Takes the ip and return city and
+	country datas through the API 
+	"""
 
     url = 'http://ip-api.com/json/{}'
     url = url.format(ip_address)

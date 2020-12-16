@@ -1,10 +1,8 @@
-""" it prints a new line in the csv file, if some errors are find it prints 
-3 different error allerts: 1) File not found (if csv file does not exist
-2) Value error (if values are not readable 3) UnicodeDecodeError (if the machine is not able
-to decode the value) """
 import csv
 
 def read_csv(path):
+    """ function that reads the last row of the csv
+    """
 
     try:
         with open(path, 'r', newline='') as f:
