@@ -36,7 +36,7 @@ if __name__ == '__main__':
         (city, country) = ip_address.get_location(args.IP_address)
         info = str('The IP ADDRESS ' + args.IP_address
                    + ' is located in ' + city + ' (' + country + ') ')
-        print info
+        print (info)
         csv_manager.write_data(csv_path, args.IP_address, city, country)
     else:
-        print 'Something goes wrong!'
+        print ('Something goes wrong!')
