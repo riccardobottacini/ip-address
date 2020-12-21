@@ -46,11 +46,11 @@ def save_new_username(username, password):
 
     salt = str(random.random())
     digest = salt + password
-    for i in range(1000):
+    for _ in range(1000):
         digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
     cursor.execute('INSERT OR REPLACE INTO users VALUES (?,?,?)',
                    (username, digest, salt))
-    print 'The registration has been successful'
+    print ('The registration has been successful')
     conn.commit()
 
 
@@ -62,8 +62,7 @@ def check_for_username(username, password):
 
     global conn
     global cursor
-    row = cursor.execute('SELECT * FROM users WHERE username = ?',
-                         (username, ))
+    row = cursor.execute('SELECT * FROM users WHERE username = ?', (username, ))
     results = row.fetchall()
     salt = str(results[0][2])
     digest = salt + password

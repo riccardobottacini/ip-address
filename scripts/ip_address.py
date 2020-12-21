@@ -4,10 +4,6 @@ import urllib.request
 
 
 def get_location(ip_address):
-	""" Takes the ip and return city and
-	country datas through the API 
-	"""
-
     url = 'http://ip-api.com/json/{}'
     url = url.format(ip_address)
     json_obj = urllib.request.urlopen(url)
